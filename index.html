@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Social Network System</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="loginScreen" class="login-screen">
+    <form id="loginForm" class="login-card">
+      <div class="brand-mark">ES</div>
+      <p class="eyebrow">EMPLOYEE PORTAL</p>
+      <h1>Welcome back</h1>
+      <p class="muted">Sign in to access your workplace network.</p>
+      <label for="employeeId">Employee ID</label>
+      <input id="employeeId" autocomplete="username" placeholder="Example: EMP001" required>
+      <label for="password">Password</label>
+      <input id="password" type="password" autocomplete="current-password" placeholder="Enter password" required>
+      <p id="loginError" class="error-message" aria-live="polite"></p>
+      <button class="primary-button full-width" type="submit">Sign in</button>
+      <p class="auth-switch">Don't have an account? <button type="button" id="showRegister" class="link-button">Create account</button></p>
+    </form>
+
+    <form id="registerForm" class="login-card hidden">
+      <div class="brand-mark">ES</div>
+      <p class="eyebrow">EMPLOYEE PORTAL</p>
+      <h1>Create account</h1>
+      <p class="muted">Register to join your workplace network.</p>
+      <label for="registerName">Full Name</label>
+      <input id="registerName" autocomplete="name" placeholder="Enter your full name" required maxlength="80">
+      <label for="registerEmail">Email Address</label>
+      <input id="registerEmail" type="email" autocomplete="email" placeholder="name@company.com" required>
+      <label for="registerDepartment">Department</label>
+      <select id="registerDepartment" required>
+        <option value="">Select your department</option>
+        <option>Human Resources</option><option>Finance</option><option>IT</option>
+        <option>Marketing</option><option>Sales</option><option>Operations</option>
+        <option>Legal and Compliance</option><option>Customer Service</option>
+      </select>
+      <label for="registerPassword">Password</label>
+      <input id="registerPassword" type="password" autocomplete="new-password" placeholder="At least 6 characters" minlength="6" required>
+      <label for="confirmPassword">Confirm Password</label>
+      <input id="confirmPassword" type="password" autocomplete="new-password" placeholder="Re-enter your password" minlength="6" required>
+      <p id="registerError" class="error-message" aria-live="polite"></p>
+      <button class="primary-button full-width" type="submit">Create account</button>
+      <p class="auth-switch">Already have an account? <button type="button" id="showLogin" class="link-button">Sign in</button></p>
+    </form>
+  </div>
+
+  <div id="app" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark small">ES</div>
+        <div><strong>SLARK <span>Hub</span></strong><small>EMPLOYEE NETWORK</small></div>
+      </div>
+      <div class="nav-label">WORKSPACE</div>
+      <nav id="mainNav" class="main-nav">
+        <button class="nav-item active" data-page="dashboard"><span>▦</span> Dashboard</button>
+        <button class="nav-item" data-page="directory"><span>♙</span> Employee Directory</button>
+        <button class="nav-item" data-page="departments"><span>▤</span> Departments</button>
+        <button class="nav-item" data-page="announcements"><span>◉</span> Announcements</button>
+        <button class="nav-item" data-page="profile"><span>◎</span> My Profile</button>
+        <button class="nav-item admin-only" data-page="admin"><span>⚙</span> Administrator</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <button id="logoutButton" class="logout-button">↪ &nbsp; Log out</button>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button id="mobileMenu" class="mobile-menu" aria-label="Open menu">☰</button>
+        <div class="breadcrumb">Workspace <span>/</span> <strong id="pageCrumb">Dashboard</strong></div>
+        <div class="topbar-right">
+          <span class="status-dot"></span><span class="muted small-text">System online</span>
+          <div class="top-avatar" id="topAvatar">C</div>
+        </div>
+      </header>
+      <section class="page-content">
+        <div id="pageRoot"></div>
+      </section>
+      <footer class="footer">© 2026 SLARK Hub Employee Network <span>Built for better workplace connection</span></footer>
+    </main>
+  </div>
+
+  <script src="data/employees.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/employee.js"></script>
+  <script src="js/department.js"></script>
+  <script src="js/announcement.js"></script>
+  <script src="js/profile.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
